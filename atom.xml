@@ -684,6 +684,34 @@ less bigdata.sorted.text
   </entry>
   
   <entry>
+    <title>2017年书单</title>
+    <link href="http://willxue.top/2017/03/04/2017%E5%B9%B4%E4%B9%A6%E5%8D%95/"/>
+    <id>http://willxue.top/2017/03/04/2017年书单/</id>
+    <published>2017-03-04T01:31:19.000Z</published>
+    <updated>2017-03-04T01:31:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>2017年大爷的书单</p>
+<p>1、《大话Java性能优化》 –2017.02.11<br>2、《摆渡人》 –2017.03.01</p>
+<p>2017年娘子的书单</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;2017年大爷的书单&lt;/p&gt;
+&lt;p&gt;1、《大话Java性能优化》 –2017.02.11&lt;br&gt;2、《摆渡人》 –2017.03.01&lt;/p&gt;
+&lt;p&gt;2017年娘子的书单&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="life" scheme="http://willxue.top/categories/life/"/>
+    
+    
+      <category term="读书" scheme="http://willxue.top/tags/%E8%AF%BB%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="http://willxue.top/2017/02/25/hello-world/"/>
     <id>http://willxue.top/2017/02/25/hello-world/</id>
@@ -1548,76 +1576,6 @@ FATAL
       <category term="jvm" scheme="http://willxue.top/tags/jvm/"/>
     
       <category term="调优" scheme="http://willxue.top/tags/%E8%B0%83%E4%BC%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>缓存策略优化-缓存穿透</title>
-    <link href="http://willxue.top/2016/12/28/%E7%BC%93%E5%AD%98%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96-%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F/"/>
-    <id>http://willxue.top/2016/12/28/缓存策略优化-缓存穿透/</id>
-    <published>2016-12-28T03:05:15.000Z</published>
-    <updated>2016-12-28T03:05:15.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="缓存介绍"><a href="#缓存介绍" class="headerlink" title="缓存介绍"></a>缓存介绍</h2><ul>
-<li><p>在高并发多用户的系统中常常会使用缓存来提升读写性能</p>
-</li>
-<li><p>常见的如memcached, redis, 内存缓存等</p>
-</li>
-</ul>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><ul>
-<li>某产品上线后不久，服务报警，看日志发现有sql的timeout报错，具体表现为：</li>
-<li>页面许多逻辑超时、出错</li>
-<li>db所在机器load较高，dba经查为大量相同的sql在反复执行</li>
-</ul>
-<a id="more"></a>
-<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>取应用服务的jstack</p>
-<p>参考我之前的blog，stack dump文件用stackAnalysis工具分析，发现有大量的线程在做同一个事情：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="number">40</span> <span class="function">threads <span class="title">at</span> <span class="params">(state = RUNNABLE,</span></span></div><div class="line">locks_locked = [<span class="number">0x0000000725b33848</span>, <span class="number">0x0000000725b338f0</span>, <span class="number">0x0000000737ff37d0</span>, <span class="number">0x0000000737f88f08</span>, <span class="number">0x0000000737f817c8</span>, <span class="number">0x00000007fc8ba580</span>, <span class="number">0x0000000725d8e638</span>, <span class="number">0x0000000725d8e6e0</span>, <span class="number">0x0000000738274490</span>, <span class="number">0x0000000725b5f720</span>, <span class="number">0x0000000725b5f7c8</span>, <span class="number">0x00000007384c03f8</span>, <span class="number">0x00000007231683a8</span>, <span class="number">0x0000000723168450</span>, <span class="number">0x0000000731980608</span>, <span class="number">0x0000000725d27ab8</span>, <span class="number">0x0000000725d2fcd8</span>, <span class="number">0x00000007384b16c8</span>, <span class="number">0x0000000723221798</span>, <span class="number">0x00000007232299c0</span>, <span class="number">0x000000072efb1228</span>, <span class="number">0x00000007005b70c0</span>, <span class="number">0x00000007005aff10</span>, <span class="number">0x0000000738321660</span>, <span class="number">0x00000007318cb948</span>, <span class="number">0x00000007318c4780</span>, <span class="number">0x0000000737c7de70</span>, <span class="number">0x0000000725a02d30</span>, <span class="number">0x0000000725a02dd8</span>, <span class="number">0x00000007fc8f8b60</span>, <span class="number">0x00000007232918f8</span>, <span class="number">0x000000072329db00</span>, <span class="number">0x000000073186ee08</span>, <span class="number">0x0000000725b7b928</span>, <span class="number">0x0000000725b7bb98</span>, <span class="number">0x0000000738066408</span>, <span class="number">0x00000007230a6ef8</span>, <span class="number">0x00000007230a0160</span>, <span class="number">0x0000000738191a18</span>, <span class="number">0x0000000737f619e8</span>, <span class="number">0x0000000737f5a6d8</span>, <span class="number">0x00000007fc8b9518</span>, <span class="number">0x0000000725ba54d0</span>, <span class="number">0x0000000725ba5578</span>, <span class="number">0x0000000738239a40</span>, <span class="number">0x0000000725e885c0</span>, <span class="number">0x0000000725e810e8</span>, <span class="number">0x00000007b24ac378</span>, <span class="number">0x00000007230c47e8</span>, <span class="number">0x00000007230c4890</span>, <span class="number">0x0000000731907c58</span>, <span class="number">0x00000007005345a0</span>, <span class="number">0x000000070052d098</span>, <span class="number">0x0000000731a6d400</span>, <span class="number">0x00000007231879f8</span>, <span class="number">0x0000000723187aa0</span>, <span class="number">0x000000073846aa20</span>, <span class="number">0x00000007231e7128</span>, <span class="number">0x00000007231e71d0</span>, <span class="number">0x0000000731958f38</span>, <span class="number">0x00000007231b2500</span>, <span class="number">0x00000007231b25a8</span>, <span class="number">0x00000007fc8f8dc0</span>, <span class="number">0x0000000725e1af28</span>, <span class="number">0x0000000725e1afd0</span>, <span class="number">0x0000000738323388</span>, <span class="number">0x00000007319ad368</span>, <span class="number">0x00000007319a6588</span>, <span class="number">0x00000007384894f0</span>, <span class="number">0x00000007318b8af8</span>, <span class="number">0x00000007318b1ba8</span>, <span class="number">0x00000007380c9908</span>, <span class="number">0x0000000725c5e478</span>, <span class="number">0x0000000725c5e520</span>, <span class="number">0x0000000738256338</span>, <span class="number">0x00000007230c7cd0</span>, <span class="number">0x00000007230b9440</span>, <span class="number">0x000000072e8c7810</span>, <span class="number">0x0000000725dcd8d0</span>, <span class="number">0x0000000725dc66d8</span>, <span class="number">0x0000000732c2df18</span>, <span class="number">0x00000007232425a0</span>, <span class="number">0x0000000723242648</span>, <span class="number">0x0000000732c31da0</span>, <span class="number">0x0000000731a4fd78</span>, <span class="number">0x0000000731a4fe20</span>, <span class="number">0x0000000738139a10</span>, <span class="number">0x0000000725cda198</span>, <span class="number">0x0000000725cda240</span>, <span class="number">0x0000000738066638</span>, <span class="number">0x0000000702b936b8</span>, <span class="number">0x0000000702b929a0</span>, <span class="number">0x00000007384893f0</span>, <span class="number">0x00000007230f9150</span>, <span class="number">0x00000007230f91f8</span>, <span class="number">0x0000000738036fc8</span>, <span class="number">0x000000073198d218</span>, <span class="number">0x000000073198d2c0</span>, <span class="number">0x00000007384710c8</span>, <span class="number">0x00000007231b0bf0</span>, <span class="number">0x00000007231b0c98</span>, <span class="number">0x00000007fc8bdea8</span>, <span class="number">0x00000007318a5808</span>, <span class="number">0x000000073189e0c8</span>, <span class="number">0x0000000731870018</span>, <span class="number">0x0000000723279d10</span>, <span class="number">0x0000000723279db8</span>, <span class="number">0x0000000738471170</span>, <span class="number">0x000000072e8fabd8</span>, <span class="number">0x000000072e8f8af8</span>, <span class="number">0x0000000732c51a38</span>, <span class="number">0x00000007319c69a8</span>, <span class="number">0x00000007319b9238</span>, <span class="number">0x0000000737fd5758</span>, <span class="number">0x0000000725b0c488</span>, <span class="number">0x0000000725b0c530</span>, <span class="number">0x00000007381f44a0</span>, <span class="number">0x0000000731a095b8</span>, <span class="number">0x0000000731a09660</span>, <span class="number">0x0000000735cbb2b0</span>]) :</div><div class="line">"http-bio-*-exec-*" daemon prio=* tid=******** nid=******** runnable [********]</div><div class="line">   java.lang.Thread.State: RUNNABLE</div><div class="line">        at java.net.SocketInputStream.socketRead0(Native Method)</div><div class="line">        at java.net.SocketInputStream.read(SocketInputStream.java:<span class="number">129</span>)</div><div class="line">        at com.mysql.jdbc.util.ReadAheadInputStream.fill(ReadAheadInputStream.java:<span class="number">114</span>)</div><div class="line">        at com.mysql.jdbc.util.ReadAheadInputStream.readFromUnderlyingStreamIfNecessary(ReadAheadInputStream.java:<span class="number">161</span>)</div><div class="line">        at com.mysql.jdbc.util.ReadAheadInputStream.read(ReadAheadInputStream.java:<span class="number">189</span>)</div><div class="line">        - locked &lt;********&gt; (a com.mysql.jdbc.util.ReadAheadInputStream)</div><div class="line">        at com.mysql.jdbc.MysqlIO.readFully(MysqlIO.java:<span class="number">3014</span>)</div><div class="line">        at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:<span class="number">3467</span>)</div><div class="line">        at com.mysql.jdbc.MysqlIO.reuseAndReadPacket(MysqlIO.java:<span class="number">3456</span>)</div><div class="line">        at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:<span class="number">3997</span>)</div><div class="line">        at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:<span class="number">2468</span>)</div><div class="line">        at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:<span class="number">2629</span>)</div><div class="line">        at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:<span class="number">2719</span>)</div><div class="line">        - locked &lt;********&gt; (a com.mysql.jdbc.JDBC4Connection)</div><div class="line">        at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:<span class="number">2155</span>)</div><div class="line">        - locked &lt;********&gt; (a com.mysql.jdbc.JDBC4Connection)</div><div class="line">        at com.mysql.jdbc.PreparedStatement.execute(PreparedStatement.java:<span class="number">1379</span>)</div><div class="line">        - locked &lt;********&gt; (a com.mysql.jdbc.JDBC4Connection)</div><div class="line">        at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.execute(NewProxyPreparedStatement.java:<span class="number">67</span>)</div><div class="line">        at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:<span class="number">56</span>)</div><div class="line">        at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:<span class="number">70</span>)</div><div class="line">        at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:<span class="number">57</span>)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:<span class="number">259</span>)</div><div class="line">        at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:<span class="number">132</span>)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:<span class="number">105</span>)</div><div class="line">        at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:<span class="number">81</span>)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:<span class="number">104</span>)</div><div class="line">        at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:<span class="number">98</span>)</div><div class="line">        at sun.reflect.GeneratedMethodAccessor30.invoke(Unknown Source)</div><div class="line">        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">25</span>)</div><div class="line">        at java.lang.reflect.Method.invoke(Method.java:<span class="number">597</span>)</div><div class="line">        at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:<span class="number">358</span>)</div><div class="line">        at com.sun.proxy.$Proxy18.selectList(Unknown Source)</div><div class="line">        at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:<span class="number">198</span>)</div><div class="line">        at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:<span class="number">114</span>)</div><div class="line">        at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:<span class="number">58</span>)</div><div class="line">        at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:<span class="number">43</span>)</div><div class="line">        at com.sun.proxy.$Proxy46.selectAllValidActivityPush(Unknown Source)</div><div class="line">        at com.xxxx.xxxx.<span class="keyword">module</span>.inbox.InboxAgent.selectActivityPush(InboxAgent.java:<span class="number">612</span>)</div><div class="line">        at com.xxxx.xxxx.service.SystemMessageService.getActivityPushMessage(SystemMessageService.java:<span class="number">975</span>)</div><div class="line">        at com.xxxx.xxxx.service.login.logic.impl.LogicLoginServiceImpl.updateLoginUser(LogicLoginServiceImpl.java:<span class="number">438</span>)</div><div class="line">        at com.xxxx.xxxx.service.login.logic.impl.LogicLoginServiceImpl.updateLoginUser(LogicLoginServiceImpl.java:<span class="number">374</span>)</div><div class="line">        at com.xxxx.xxxx.web.controller.login.LoginController.login(LoginController.java:<span class="number">119</span>)</div></pre></td></tr></table></figure></p>
-<p> 可以看到有40个线程在等待db的数据返回，结合堆栈，基本可以定位到有问题的代码逻辑了</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>仔细分析对应代码逻辑，可发现有如下的缓存策略：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function">Object <span class="title">getObject</span><span class="params">()</span> </span>&#123;</div><div class="line">    o = getFromCache()</div><div class="line">    <span class="keyword">if</span>(o == <span class="keyword">null</span>)&#123;</div><div class="line">        o = getFromDb()</div><div class="line">        <span class="keyword">if</span>(o != <span class="keyword">null</span>) &#123;</div><div class="line">            setToCache(o)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> o;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>从上面看貌似没有问题，但仔细分析会发现当getFromDb()返回null即数据库中并不存在相关数据时，每一个线程都会去执行getFromDb()这个方法，每个请求都会穿透到db上</p>
-<p>当用户请求较大时，对数据库的压力会非常大【上面的stack仅为多台应用web中的一台】</p>
-<hr>
-<h2 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a><strong>解决思路</strong></h2><p>当数据库中无数据时，可以在缓存中放一个无效的对象表明“数据为空，不需要到db中查询了”，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function">Object <span class="title">getObject</span><span class="params">()</span> </span>&#123;</div><div class="line">    o = getFromCache(key)</div><div class="line">    <span class="keyword">if</span>(o == <span class="keyword">null</span>)&#123;</div><div class="line">        o = getFromDb()</div><div class="line">        <span class="keyword">if</span>(o != <span class="keyword">null</span>) &#123;</div><div class="line">            setToCache(key, o)</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            setToCache(key, invalidObject)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> o == invalidObject ? <span class="keyword">null</span> : o;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>更进一步，上面的getFromDb()逻辑仍有可能会被多个线程同时操作，可以视业务场景而加上分布式锁的逻辑：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function">Object <span class="title">getObject</span><span class="params">()</span> </span>&#123;</div><div class="line">    o = getFromCache(key)</div><div class="line">    <span class="keyword">if</span>(o == <span class="keyword">null</span>)&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">if</span>(cache.lock(key)) &#123;</div><div class="line">                o = getFromDb()</div><div class="line">                <span class="keyword">if</span>(o != <span class="keyword">null</span>) &#123;</div><div class="line">                    setToCache(key, o)</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> &#123;</div><div class="line">                    setToCache(key, invalidObject)</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            cache.unlock(key);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> o == invalidObject ? <span class="keyword">null</span> : o;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="延伸"><a href="#延伸" class="headerlink" title="延伸"></a>延伸</h2><p>我们在用缓存的时候，不管是Redis或者Memcached，基本上会通用遇到以下三个问题：</p>
-<ul>
-<li>缓存穿透</li>
-<li>存并发</li>
-<li>缓存失效</li>
-</ul>
-<p>其实上面是对缓存加锁，考虑缓存并发的问题，只不过利用锁的方式，会造成部分请求等待。</p>
-<p>###缓存失效<br>引起这个问题的主要原因还是高并发的时候，平时我们设定一个缓存的过期时间时，可能有一些会设置1分钟啊，5分钟这些，并发很高时可能会出在某一个时间同时生成了很多的缓存，并且过期时间都一样，这个时候就可能引发一当过期时间到后，这些缓存同时失效，请求全部转发到DB，DB可能会压力过重。</p>
-<p>那如何解决这些问题呢？<br>其中的一个简单方案就时讲缓存失效时间分散开，比如我们可以在原有的失效时间基础上增加一个随机值，比如1-5分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效的事件。</p>
-<h2 id="思考及建议"><a href="#思考及建议" class="headerlink" title="思考及建议"></a>思考及建议</h2><ul>
-<li>多线程思维：每一行代码都要考虑其会被多个线程高并发的执行</li>
-<li>抠门思维：每一行代码，尤其每一个网络操作（cache或db），都要考虑是否可以节省下来，或者将多个操作合并为一个操作</li>
-<li>批量思维：多个动作是否可以一次完成。举个例子：去菜市场买菜大家都会一次把五种菜全买回，而不是买一次菜去菜市场一次。coding为什么不也这样呢？</li>
-<li>每个逻辑都要谨慎思考，任何疏忽都可能会把线上搞死，服务宕机，造成严重后果</li>
-</ul>
-<p>原文链接： <a href="http://www.jianshu.com/p/e191a4d32982" target="_blank" rel="external">简书作者</a><br><a href="http://www.jianshu.com/p/d96906140199" target="_blank" rel="external">http://www.jianshu.com/p/d96906140199</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;缓存介绍&quot;&gt;&lt;a href=&quot;#缓存介绍&quot; class=&quot;headerlink&quot; title=&quot;缓存介绍&quot;&gt;&lt;/a&gt;缓存介绍&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;在高并发多用户的系统中常常会使用缓存来提升读写性能&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;常见的如memcached, redis, 内存缓存等&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;现象&quot;&gt;&lt;a href=&quot;#现象&quot; class=&quot;headerlink&quot; title=&quot;现象&quot;&gt;&lt;/a&gt;现象&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;某产品上线后不久，服务报警，看日志发现有sql的timeout报错，具体表现为：&lt;/li&gt;
-&lt;li&gt;页面许多逻辑超时、出错&lt;/li&gt;
-&lt;li&gt;db所在机器load较高，dba经查为大量相同的sql在反复执行&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="code" scheme="http://willxue.top/categories/code/"/>
-    
-    
-      <category term="缓存" scheme="http://willxue.top/tags/%E7%BC%93%E5%AD%98/"/>
     
   </entry>
   
