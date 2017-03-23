@@ -158,6 +158,149 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ReentrantLock实现原理深入探究" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/29/ReentrantLock实现原理深入探究/">ReentrantLock实现原理深入探究</a>
+    </h1>
+  
+
+        <a href="/2016/12/29/ReentrantLock实现原理深入探究/" class="archive-article-date">
+  	<time datetime="2016-12-29T13:51:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ReentrantLock实现原理深入探究"><a href="#ReentrantLock实现原理深入探究" class="headerlink" title="ReentrantLock实现原理深入探究"></a>ReentrantLock实现原理深入探究</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章被归到Java基础分类中，其实真的一点都不基础。网上写ReentrantLock的使用、ReentrantLock和synchronized的区别的文章很多，研究ReentrantLock并且能讲清楚ReentrantLock的原理的文章很少，本文就来研究一下ReentrantLock的实现原理。研究ReentrantLock的实现原理需要比较好的Java基础以及阅读代码的能力，有些朋友看不懂没关系，可以以后看，相信你一定会有所收获。</p>
+<p>最后说一句，ReentrantLock是基于AQS实现的，这在下面会讲到，AQS的基础又是CAS，如果不是很熟悉CAS的朋友，可以看一下这篇文章<a href="http://www.cnblogs.com/xrq730/p/4976007.html">Unsafe与CAS</a>。</p>
+        
+          <a class="article-more-a" href="/2016/12/29/ReentrantLock实现原理深入探究/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">多线程</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/code/">code</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/29/ReentrantLock实现原理深入探究/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Troubleshooting-Long-GC-Pauses" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/">Troubleshooting Long GC Pauses</a>
+    </h1>
+  
+
+        <a href="/2016/12/29/Troubleshooting-Long-GC-Pauses/" class="archive-article-date">
+  	<time datetime="2016-12-29T02:56:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿"><a href="#Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿" class="headerlink" title="Troubleshooting Long GC Pauses 垃圾收集器长时间停顿"></a>Troubleshooting Long GC Pauses 垃圾收集器长时间停顿</h1><p>By Poonam-Oracle on Jul 31, 2013</p>
+<p>Low pause times during the application run is the most important goal for many enterprise applications, especially for the transaction-based systems where long latencies can result in the transaction time-outs. For systems running on the Java Virtual Machines, garbage collections can sometimes be the cause of the long pauses.</p>
+<p>In this post I am going to describe different scenarios where we can encounter long GC pauses and how we can diagnose and troubleshoot these GC pauses.</p>
+<p>Causes</p>
+<p>Following are the different situations that can cause long GC pauses during the application run.</p>
+        
+          <a class="article-more-a" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color4">jvm</a>
+        </li>
+       
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">调优</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/code/">code</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-缓存策略优化-缓存穿透" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -577,7 +720,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Druid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">java优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -609,15 +768,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">java优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">日志</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">缓存</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -629,15 +780,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">高并发，日期格式化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">哈佛幸福果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">多线程</a>
               </li>
             
             <div class="clearfix"></div>

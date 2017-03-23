@@ -684,6 +684,74 @@ less bigdata.sorted.text
   </entry>
   
   <entry>
+    <title>MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</title>
+    <link href="http://willxue.top/2017/03/23/MyBatis%E6%8E%92%E5%BA%8F%E6%97%B6%E4%BD%BF%E7%94%A8order-by-%E5%8A%A8%E6%80%81%E5%8F%82%E6%95%B0%E6%97%B6%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%EF%BC%8C%E7%94%A8-%E8%80%8C%E4%B8%8D%E6%98%AF/"/>
+    <id>http://willxue.top/2017/03/23/MyBatis排序时使用order-by-动态参数时需要注意，用-而不是/</id>
+    <published>2017-03-23T13:13:49.000Z</published>
+    <updated>2017-03-23T13:13:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</p>
+<p>字符串替换默认情况下，使用#{}格式的语法会导致MyBatis创建预处理语句属性并以它为背景设置安全的值（比如?）。<br>这样做很安全，很迅速也是首选做法，有时你只是想直接在SQL语句中插入一个不改变的字符串。比如，像ORDER BY，你可以这样来使用：<br>ORDER BY ${columnName}这里MyBatis不会修改或转义字符串。</p>
+<h2 id="重要："><a href="#重要：" class="headerlink" title="重要："></a>重要：</h2><p>接受从用户输出的内容并提供给语句中不变的字符串，这样做是不安全的。<br>这会导致潜在的SQL注入攻击，因此你不应该允许用户输入这些字段，或者通常自行转义并检查。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;#MyBatis排序时使用order by 动态参数时需要注意，用$而不是#&lt;/p&gt;
+&lt;p&gt;字符串替换默认情况下，使用#{}格式的语法会导致MyBatis创建预处理语句属性并以它为背景设置安全的值（比如?）。&lt;br&gt;这样做很安全，很迅速也是首选做法，有时你只是想直接在SQL
+    
+    </summary>
+    
+      <category term="code" scheme="http://willxue.top/categories/code/"/>
+    
+    
+      <category term="MyBatis" scheme="http://willxue.top/tags/MyBatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Druid简介</title>
+    <link href="http://willxue.top/2017/03/18/Druid%E7%AE%80%E4%BB%8B/"/>
+    <id>http://willxue.top/2017/03/18/Druid简介/</id>
+    <published>2017-03-18T12:36:56.000Z</published>
+    <updated>2017-03-18T12:36:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Druid-简介"><a href="#Druid-简介" class="headerlink" title="Druid 简介"></a>Druid 简介</h1><h2 id="【软件简介】"><a href="#【软件简介】" class="headerlink" title="【软件简介】"></a>【软件简介】</h2><p><strong> Druid 是一个JDBC组件，它包括三部分： </strong></p>
+<ul>
+<li>1、DruidDriver 代理Driver，能够提供基于Filter－Chain模式的插件体系。</li>
+<li>2、DruidDataSource 高效可管理的数据库连接池。</li>
+<li>3、SQLParser</li>
+</ul>
+<h2 id="【访谈实录】"><a href="#【访谈实录】" class="headerlink" title="【访谈实录】"></a>【访谈实录】</h2><h3 id="1-能否先介绍一下你自己（技术背景、工作经历、学习经历）"><a href="#1-能否先介绍一下你自己（技术背景、工作经历、学习经历）" class="headerlink" title="1.    能否先介绍一下你自己（技术背景、工作经历、学习经历）"></a>1.    能否先介绍一下你自己（技术背景、工作经历、学习经历）</h3><p>我，温绍锦，新浪微博账号是温高铁（<a href="http://weibo.com/wengaotie），2001年深圳大学毕业后到金蝶软件工作，到2010年3月，在此期间，主要的工作成果包括工作流引擎、多数据支持、短信网关、SAAS多租户技术架构等。2010年3月加入阿里巴巴至今，主要负责设计阿里巴巴的监控系统Dragoon，监控应用和操作系统以及网络设备。Druid和Fastjson都是监控系统的伴生项目。" target="_blank" rel="external">http://weibo.com/wengaotie），2001年深圳大学毕业后到金蝶软件工作，到2010年3月，在此期间，主要的工作成果包括工作流引擎、多数据支持、短信网关、SAAS多租户技术架构等。2010年3月加入阿里巴巴至今，主要负责设计阿里巴巴的监控系统Dragoon，监控应用和操作系统以及网络设备。Druid和Fastjson都是监控系统的伴生项目。</a></p>
+<h3 id="2-是什么促使你（团队）开发-Druid-？为什么取这个名字？"><a href="#2-是什么促使你（团队）开发-Druid-？为什么取这个名字？" class="headerlink" title="2.    是什么促使你（团队）开发 Druid ？为什么取这个名字？"></a>2.    是什么促使你（团队）开发 Druid ？为什么取这个名字？</h3><p>在应用监控中，JDBC层间的监控十分重要，Druid就是为监控而生的。老板喜欢的一个游戏职业是Druid，于是项目的名称就是Druid。</p>
+<h3 id="3-相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？"><a href="#3-相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？" class="headerlink" title="3.   相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？"></a>3.   相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？</h3><p>Druid最重要的优势，就是监控和扩展。在实际测试中，DruidDataSource的性能要比C3P0/DBCP/Jboss DataSource/Proxool/BoneCP都要好，但性能不是Druid的最重要优势。<br>Druid最初是为监控而生的JDBC组件，阿里巴巴的应用监控系统的JDBC相关监控数据都来自Druid。Druid能够监控执行时间、事务时间、返回行数、更新行数、最大并发、耗时区间分布等，共一百多个监控指标。Druid的监控非常出色，在业界中，没有任何JDBC组件在监控方面能和Druid相比。<br>Druid提供了基于Filter-Chain模式的扩展，使得在JDBC层做扩展非常容易。Druid内置提供了一些常用的Filter，StatFilter用于提供监控数据，Log系列Filter用于提供输出Connection、Statement、ResultSet相关的日志，WallFilter用于防御SQL注入攻击。在阿里巴巴，业务系统自行开发各种功能的Filter，比如：数据库密码加密的CirceFilter、数据库修改操作变更日志记录的TracerFilter、用于关联监控统计的DragoonFilter、用于错误编码转换的EncodingConvertFilter等等。<br>Druid还提供了一个功能完毕的SQL Parser，支持Oracle、MySQL、Postgresql、SQL Server等主流数据库的SQL。</p>
+<h3 id="4-Druid-目前怎么推广，在实际产品中的应用情况如何？"><a href="#4-Druid-目前怎么推广，在实际产品中的应用情况如何？" class="headerlink" title="4.    Druid 目前怎么推广，在实际产品中的应用情况如何？"></a>4.    Druid 目前怎么推广，在实际产品中的应用情况如何？</h3><p>Druid已经在阿里巴巴的B2B中全面使用，大约有600多个应用，最大的应用一个集群60多个Instance，总共数千个Instance。Druid在淘宝、支付宝刚开始使用。随着监控系统Dragoon在整个阿里集团推广，Druid将会在整个阿里集团部署。<br>Druid在阿里巴巴外部也有很多用户，经常收到反馈，但没有详细的统计数据。</p>
+<h3 id="5-阿里以外的项目比较少采用-Druid-是否因为它比较适合大型系统？因为-Druid-强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？"><a href="#5-阿里以外的项目比较少采用-Druid-是否因为它比较适合大型系统？因为-Druid-强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？" class="headerlink" title="5.    阿里以外的项目比较少采用 Druid 是否因为它比较适合大型系统？因为 Druid 强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？"></a>5.    阿里以外的项目比较少采用 Druid 是否因为它比较适合大型系统？因为 Druid 强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？</h3><p>不是的，阿里巴巴600多个应用中，大中小各种类型的应用都有。稳定来自于透明，Druid的监控功能使得数据库访问层完全透明可监控。据我收到的反馈来看，阿里巴巴之外，至少有50个以上的项目采用了Druid。最近主动部署内置监控页面的，很多都是小应用，只有一台服务器的小应用。Druid的应用还没有DBCP、C3P0广，主要是它对外推广的时间还不够长，今年（2012年）下半年开始，才开始对外推广。</p>
+<h3 id="6-目前参与开发-维护-Druid-的人员有哪些？是否都是全职做-Druid-的开发？"><a href="#6-目前参与开发-维护-Druid-的人员有哪些？是否都是全职做-Druid-的开发？" class="headerlink" title="6.    目前参与开发/维护 Druid 的人员有哪些？是否都是全职做 Druid 的开发？"></a>6.    目前参与开发/维护 Druid 的人员有哪些？是否都是全职做 Druid 的开发？</h3><p>目前主要的开发人员有：刘加伟（项目发起人/阿里集团）、温绍锦（我/阿里集团）、王瑾华（axmanwang/阿里集团）、张永为（sandzhang/阿里巴巴）、修斯研（xiusiyan/支付宝）、齐占明（ZhangmingQi/中企永联）、周科荣（zhouhaibin/新浪彩票）、septer。<br>只有温绍锦（我）和王瑾华曾是公司工作安排相关，其他的都是业余参与。<br>在2011初，公司配备了专职的连接池测试人员：王克举、陈龙（实习生），2011年下半年连接池稳定之后就没有专职的测试了。</p>
+<h3 id="7-Druid-将来的发展方向？"><a href="#7-Druid-将来的发展方向？" class="headerlink" title="7.    Druid 将来的发展方向？"></a>7.    Druid 将来的发展方向？</h3><p>成为国内使用最广泛的Java数据库连接池。着重社区建设，增加非阿里系开发人员的比重。</p>
+<h3 id="8-能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？"><a href="#8-能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？" class="headerlink" title="8.    能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？"></a>8.    能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？</h3><p>参与开源是个人爱好，是对技术的追求。开源的项目，一定要是精品，要有突出的优势，把乱七八糟的产品开源了，没有意义。做开源产品，必须强调运营，和社区互动，尽量让社区更多参与其中。</p>
+<p>###9.    淘宝内部对于 Druid 这样的开源项目是如何管理和规划的？<br>这个项目发源于阿里巴巴B2B，目前归属于阿里集团，不是淘宝。项目首先是服务于公司的业务，阿里巴巴开源平台是做精品策略，开源必须要是好产品。公司支持和鼓励开源，但开源部分的工作和绩效无关。Druid的发展过程中，公司配备专职的测试，在测试环境和生产环境进行测试，实施阶段有专职人员负责实施，各个部门有相应的实施负责人。Druid快速发展成熟，很重要的原因是公司提供了大力支持。</p>
+<h3 id="10-你有什么建议给程序员初学者吗？"><a href="#10-你有什么建议给程序员初学者吗？" class="headerlink" title="10.   你有什么建议给程序员初学者吗？"></a>10.   你有什么建议给程序员初学者吗？</h3><p>如果项目中有用到数据库连接池，一定要选择Druid。多阅读JDK基础类库的源码，多阅读JSR（<a href="http://jcp.org）。" target="_blank" rel="external">http://jcp.org）。</a></p>
+<h3 id="11-能否给开源中国提一些意见和建议？"><a href="#11-能否给开源中国提一些意见和建议？" class="headerlink" title="11.    能否给开源中国提一些意见和建议？"></a>11.    能否给开源中国提一些意见和建议？</h3><p>建议OSChina把原来使用的数据库连接池更换为Druid。</p>
+<h3 id="12、开源地址"><a href="#12、开源地址" class="headerlink" title="12、开源地址"></a>12、开源地址</h3><p>API<br><a href="http://tool.oschina.net/apidocs/apidoc?api=druid0.26" target="_blank" rel="external">http://tool.oschina.net/apidocs/apidoc?api=druid0.26</a></p>
+<p>OSChina<br><a href="https://git.oschina.net/wenshao/druid" target="_blank" rel="external">https://git.oschina.net/wenshao/druid</a></p>
+<p>github(信息比oschina全一些)<br><a href="https://github.com/druid-io" target="_blank" rel="external">https://github.com/druid-io</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Druid-简介&quot;&gt;&lt;a href=&quot;#Druid-简介&quot; class=&quot;headerlink&quot; title=&quot;Druid 简介&quot;&gt;&lt;/a&gt;Druid 简介&lt;/h1&gt;&lt;h2 id=&quot;【软件简介】&quot;&gt;&lt;a href=&quot;#【软件简介】&quot; class=&quot;headerli
+    
+    </summary>
+    
+      <category term="code" scheme="http://willxue.top/categories/code/"/>
+    
+    
+      <category term="Druid" scheme="http://willxue.top/tags/Druid/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2017年书单</title>
     <link href="http://willxue.top/2017/03/04/2017%E5%B9%B4%E4%B9%A6%E5%8D%95/"/>
     <id>http://willxue.top/2017/03/04/2017年书单/</id>
@@ -691,15 +759,15 @@ less bigdata.sorted.text
     <updated>2017-03-04T01:31:19.000Z</updated>
     
     <content type="html"><![CDATA[<p>2017年大爷的书单</p>
-<p>1、《大话Java性能优化》 –2017.02.11<br>2、《摆渡人》 –2017.03.01</p>
-<p>2017年娘子的书单</p>
+<p>1、《解忧杂货店》  – 春节期间<br>2、《大话Java性能优化》 –2017.02.11<br>3、《摆渡人》 –2017.03.01</p>
+<p>2017年娘子的书单<br>1、《解忧杂货店》<br>2、《摆渡人》</p>
 ]]></content>
     
     <summary type="html">
     
       &lt;p&gt;2017年大爷的书单&lt;/p&gt;
-&lt;p&gt;1、《大话Java性能优化》 –2017.02.11&lt;br&gt;2、《摆渡人》 –2017.03.01&lt;/p&gt;
-&lt;p&gt;2017年娘子的书单&lt;/p&gt;
+&lt;p&gt;1、《解忧杂货店》  – 春节期间&lt;br&gt;2、《大话Java性能优化》 –2017.02.11&lt;br&gt;3、《摆渡人》 –2017.03.01&lt;/p&gt;
+&lt;p&gt;2017年娘子的书单&lt;br&gt;1、《解忧杂货店》&lt;br&gt;2、《摆渡人》&lt;/p&gt;
 
     
     </summary>
@@ -1246,336 +1314,6 @@ FATAL
     
       <category term="pic" scheme="http://willxue.top/categories/pic/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>ReentrantLock实现原理深入探究</title>
-    <link href="http://willxue.top/2016/12/29/ReentrantLock%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%A9%B6/"/>
-    <id>http://willxue.top/2016/12/29/ReentrantLock实现原理深入探究/</id>
-    <published>2016-12-29T13:51:47.000Z</published>
-    <updated>2016-12-29T13:51:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ReentrantLock实现原理深入探究"><a href="#ReentrantLock实现原理深入探究" class="headerlink" title="ReentrantLock实现原理深入探究"></a>ReentrantLock实现原理深入探究</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章被归到Java基础分类中，其实真的一点都不基础。网上写ReentrantLock的使用、ReentrantLock和synchronized的区别的文章很多，研究ReentrantLock并且能讲清楚ReentrantLock的原理的文章很少，本文就来研究一下ReentrantLock的实现原理。研究ReentrantLock的实现原理需要比较好的Java基础以及阅读代码的能力，有些朋友看不懂没关系，可以以后看，相信你一定会有所收获。</p>
-<p>最后说一句，ReentrantLock是基于AQS实现的，这在下面会讲到，AQS的基础又是CAS，如果不是很熟悉CAS的朋友，可以看一下这篇文章<a href="http://www.cnblogs.com/xrq730/p/4976007.html" target="_blank" rel="external">Unsafe与CAS</a>。</p>
-<a id="more"></a>
-<h2 id="AbstractQueuedSynchronizer"><a href="#AbstractQueuedSynchronizer" class="headerlink" title="AbstractQueuedSynchronizer"></a>AbstractQueuedSynchronizer</h2><p>ReentrantLock实现的前提就是AbstractQueuedSynchronizer，简称AQS，是java.util.concurrent的核心，CountDownLatch、FutureTask、Semaphore、ReentrantLock等都有一个内部类是这个抽象类的子类。先用两张表格介绍一下AQS。第一个讲的是Node，由于<strong><em>AQS是基于FIFO队列的实现</em></strong>，因此必然存在一个个节点，Node就是一个节点，Node里面有：</p>
-<table>
-<thead>
-<tr>
-<th>属    性</th>
-<th>定    义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Node SHARED = new Node()</td>
-<td>表示Node处于共享模式</td>
-</tr>
-<tr>
-<td>Node EXCLUSIVE = null</td>
-<td>表示Node处于独占模式</td>
-</tr>
-<tr>
-<td>int CANCELLED = 1</td>
-<td>因为超时或者中断，Node被设置为取消状态，被取消的Node不应该去竞争锁，只能保持取消状态不变，不能转换为其他状态，处于这种状态的Node会被踢出队列，被GC回收</td>
-</tr>
-<tr>
-<td>int SIGNAL = -1</td>
-<td>表示这个Node的继任Node被阻塞了，到时需要通知它</td>
-</tr>
-<tr>
-<td>int CONDITION = -2</td>
-<td>表示这个Node在条件队列中，因为等待某个条件而被阻塞</td>
-</tr>
-<tr>
-<td>int PROPAGATE = -3</td>
-<td>使用在共享模式头Node有可能处于这种状态， 表示锁的下一次获取可以无条件传播</td>
-</tr>
-<tr>
-<td>int waitStatus</td>
-<td>0，新Node会处于这种状态</td>
-</tr>
-<tr>
-<td>Node prev</td>
-<td>队列中某个Node的前驱Node</td>
-</tr>
-<tr>
-<td>Node next</td>
-<td>队列中某个Node的后继Node</td>
-</tr>
-<tr>
-<td>Thread thread</td>
-<td>这个Node持有的线程，表示等待锁的线程</td>
-</tr>
-<tr>
-<td>Node nextWaiter</td>
-<td>表示下一个等待condition的Node</td>
-</tr>
-</tbody>
-</table>
-<p>看完了Node，下面再看一下AQS中有哪些变量和方法：</p>
-<table>
-<thead>
-<tr>
-<th>属性/方法</th>
-<th>含    义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Thread exclusiveOwnerThread</td>
-<td>这个是AQS父类AbstractOwnableSynchronizer的属性，表示独占模式同步器的当前拥有者</td>
-</tr>
-<tr>
-<td>Node</td>
-<td>上面已经介绍过了，FIFO队列的基本单位</td>
-</tr>
-<tr>
-<td>Node head</td>
-<td>FIFO队列中的头Node</td>
-</tr>
-<tr>
-<td>Node tail</td>
-<td>FIFO队列中的尾Node</td>
-</tr>
-<tr>
-<td>int state</td>
-<td>同步状态，0表示未锁</td>
-</tr>
-<tr>
-<td>int getState()</td>
-<td>获取同步状态</td>
-</tr>
-<tr>
-<td>setState(int newState)</td>
-<td>设置同步状态</td>
-</tr>
-<tr>
-<td>boolean compareAndSetState(int expect, int update)</td>
-<td>利用CAS进行State的设置</td>
-</tr>
-<tr>
-<td> long spinForTimeoutThreshold = 1000L</td>
-<td>线程自旋等待的时间</td>
-</tr>
-<tr>
-<td>Node enq(final Node node)</td>
-<td>插入一个Node到FIFO队列中</td>
-</tr>
-<tr>
-<td>Node addWaiter(Node mode)</td>
-<td>为当前线程和指定模式创建并扩充一个等待队列</td>
-</tr>
-<tr>
-<td>void setHead(Node node)</td>
-<td>设置队列的头Node</td>
-</tr>
-<tr>
-<td>void unparkSuccessor(Node node)</td>
-<td>如果存在的话，唤起Node持有的线程</td>
-</tr>
-<tr>
-<td>void doReleaseShared()</td>
-<td>共享模式下做释放锁的动作</td>
-</tr>
-<tr>
-<td>void cancelAcquire(Node node)</td>
-<td>取消正在进行的Node获取锁的尝试</td>
-</tr>
-<tr>
-<td>boolean shouldParkAfterFailedAcquire(Node pred, Node node)</td>
-<td>在尝试获取锁失败后是否应该禁用当前线程并等待</td>
-</tr>
-<tr>
-<td>void selfInterrupt()</td>
-<td>中断当前线程本身</td>
-</tr>
-<tr>
-<td>boolean parkAndCheckInterrupt()</td>
-<td>禁用当前线程进入等待状态并中断线程本身</td>
-</tr>
-<tr>
-<td>boolean acquireQueued(final Node node, int arg)</td>
-<td>队列中的线程获取锁</td>
-</tr>
-<tr>
-<td>tryAcquire(int arg)</td>
-<td>尝试获得锁（由AQS的子类实现它）</td>
-</tr>
-<tr>
-<td>tryRelease(int arg)</td>
-<td>尝试释放锁（由AQS的子类实现它）</td>
-</tr>
-<tr>
-<td>isHeldExclusively()</td>
-<td>是否独自持有锁</td>
-</tr>
-<tr>
-<td>acquire(int arg)</td>
-<td>获取锁</td>
-</tr>
-<tr>
-<td>release(int arg)</td>
-<td>释放锁</td>
-</tr>
-<tr>
-<td>compareAndSetHead(Node update)</td>
-<td>利用CAS设置头Node</td>
-</tr>
-<tr>
-<td>compareAndSetTail(Node expect, Node update)</td>
-<td>利用CAS设置尾Node</td>
-</tr>
-<tr>
-<td>compareAndSetWaitStatus(Node node, int expect, int update)</td>
-<td>利用CAS设置某个Node中的等待状态</td>
-</tr>
-</tbody>
-</table>
-<p>上面列出了AQS中最主要的一些方法和属性。<strong>整个AQS是典型的模板模式</strong>的应用，设计得十分精巧，对于FIFO队列的各种操作在AQS中已经实现了，<strong><em>AQS的子类一般只需要重写tryAcquire(int arg)和tryRelease(int arg)两个方法即可。</em></strong></p>
-<h2 id="ReentrantLock的实现"><a href="#ReentrantLock的实现" class="headerlink" title="ReentrantLock的实现"></a>ReentrantLock的实现</h2><p>ReentrantLock中有一个抽象类Sync：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">final</span> Sync sync;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Base of synchronization control for this lock. Subclassed</div><div class="line">     * into fair and nonfair versions below. Uses AQS state to</div><div class="line">     * represent the number of holds on the lock.</div><div class="line">     */</div><div class="line">    <span class="keyword">abstract</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Sync</span> <span class="keyword">extends</span> <span class="title">AbstractQueuedSynchronizer</span> </span>&#123;</div><div class="line">    ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-<p>ReentrantLock根据传入构造方法的布尔型参数实例化出Sync的实现类FairSync和NonfairSync，分别表示公平的Sync和非公平的Sync。由于ReentrantLock我们用的比较多的是非公平锁，所以看下非公平锁是如何实现的。假设线程1调用了ReentrantLock的lock()方法，那么线程1将会独占锁，整个调用链十分简单：</p>
-<p>第一个获取锁的线程就做了两件事情：</p>
-<ul>
-<li><p><strong><em>1、设置AbstractQueuedSynchronizer的state为1</em></strong></p>
-</li>
-<li><p><strong><em>2、设置AbstractOwnableSynchronizer的thread为当前线程</em></strong></p>
-</li>
-</ul>
-<p>这两步做完之后就表示线程1独占了锁。然后线程2也要尝试获取同一个锁，在线程1没有释放锁的情况下必然是行不通的，所以线程2就要阻塞。那么，线程2如何被阻塞？看下线程2的方法调用链，这就比较复杂了：</p>
-<p>调用链看到确实非常长，没关系，结合代码分析一下，其实ReentrantLock没有那么复杂，我们一点点来扒代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (compareAndSetState(<span class="number">0</span>, <span class="number">1</span>))</div><div class="line">        setExclusiveOwnerThread(Thread.currentThread());</div><div class="line">    <span class="keyword">else</span></div><div class="line">        acquire(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>首先线程2尝试利用CAS去判断state是不是0，是0就设置为1，当然这一步操作肯定是失败的，因为线程1已经将state设置成了1，所以第2行必定是false，因此线程2走第5行的acquire方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">acquire</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (!tryAcquire(arg) &amp;&amp;</div><div class="line">        acquireQueued(addWaiter(Node.EXCLUSIVE), arg))</div><div class="line">        selfInterrupt();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>从字面上就很好理解这个if的意思，先走第一个判断条件尝试获取一次锁，如果获取的结果为false即失败，走第二个判断条件添加FIFO等待队列。所以先看一下tryAcquire方法做了什么，这个方法最终调用到的是Sync的nonfairTryAcquire方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">nonfairTryAcquire</span><span class="params">(<span class="keyword">int</span> acquires)</span> </span>&#123;</div><div class="line">    <span class="keyword">final</span> Thread current = Thread.currentThread();</div><div class="line">    <span class="keyword">int</span> c = getState();</div><div class="line">    <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (compareAndSetState(<span class="number">0</span>, acquires)) &#123;</div><div class="line">            setExclusiveOwnerThread(current);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (current == getExclusiveOwnerThread()) &#123;</div><div class="line">        <span class="keyword">int</span> nextc = c + acquires;</div><div class="line">        <span class="keyword">if</span> (nextc &lt; <span class="number">0</span>) <span class="comment">// overflow</span></div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">"Maximum lock count exceeded"</span>);</div><div class="line">        setState(nextc);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>由于state是volatile的，所以state对线程2具有可见性，线程2拿到最新的state，再次判断一下能否持有锁（可能线程1同步代码执行得比较快，这会儿已经释放了锁），不可以就返回false。</p>
-<p>注意一下第10~第16行，这段代码的作用是让某个线程可以多次调用同一个ReentrantLock，每调用一次给state+1，由于某个线程已经持有了锁，所以这里不会有竞争，因此不需要利用CAS设置state（<strong>相当于一个偏向锁</strong>）。从这段代码可以看到，nextc每次加1，当nextc&lt;0的时候抛出error，那么同一个锁最多能重入Integer.MAX_VALUE次，也就是2147483647。</p>
-<p>然后就走到if的第二个判断里面了，先走AQS的addWaiter方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">addWaiter</span><span class="params">(Node mode)</span> </span>&#123;</div><div class="line">    Node node = <span class="keyword">new</span> Node(Thread.currentThread(), mode);</div><div class="line">    <span class="comment">// Try the fast path of enq; backup to full enq on failure</span></div><div class="line">    Node pred = tail;</div><div class="line">    <span class="keyword">if</span> (pred != <span class="keyword">null</span>) &#123;</div><div class="line">        node.prev = pred;</div><div class="line">        <span class="keyword">if</span> (compareAndSetTail(pred, node)) &#123;</div><div class="line">            pred.next = node;</div><div class="line">            <span class="keyword">return</span> node;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    enq(node);</div><div class="line">    <span class="keyword">return</span> node;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>先创建一个当前线程的Node，模式为独占模式（因为传入的mode是一个NULL），再判断一下队列上有没有节点，没有就创建一个队列，因此走enq方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> Node <span class="title">enq</span><span class="params">(<span class="keyword">final</span> Node node)</span> </span>&#123;</div><div class="line">    <span class="keyword">for</span> (;;) &#123;</div><div class="line">        Node t = tail;</div><div class="line">        <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123; <span class="comment">// Must initialize</span></div><div class="line">            Node h = <span class="keyword">new</span> Node(); <span class="comment">// Dummy header</span></div><div class="line">            h.next = node;</div><div class="line">            node.prev = h;</div><div class="line">            <span class="keyword">if</span> (compareAndSetHead(h)) &#123;</div><div class="line">                tail = node;</div><div class="line">                <span class="keyword">return</span> h;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> &#123;</div><div class="line">            node.prev = t;</div><div class="line">            <span class="keyword">if</span> (compareAndSetTail(t, node)) &#123;</div><div class="line">                t.next = node;</div><div class="line">                <span class="keyword">return</span> t;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这个方法其实画一张图应该比较好理解，形成一个队列之后应该是这样的：</p>
-<p>图片</p>
-<p>每一步都用图表示出来了，由于线程2所在的Node是第一个要等待的Node，因此FIFO队列上肯定没有内容，tail为null，走的就是第4行~第10行的代码逻辑。这里用了CAS设置头Node，当然有可能线程2设置头Node的时候CPU切换了，线程3已经把头Node设置好了形成了上图所示的一个队列，这时线程2再循环一次获取tail，由于tail是volatile的，所以对线程2可见，线程2看见tail不为null，就走到了13行的else里面去往尾Node后面添加自身。整个过程下来，形成了一个双向队列。最后走AQS的acquireQueued(node, 1)：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">acquireQueued</span><span class="params">(<span class="keyword">final</span> Node node, <span class="keyword">int</span> arg)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">boolean</span> interrupted = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">for</span> (;;) &#123;</div><div class="line">            <span class="keyword">final</span> Node p = node.predecessor();</div><div class="line">            <span class="keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) &#123;</div><div class="line">                setHead(node);</div><div class="line">                p.next = <span class="keyword">null</span>; <span class="comment">// help GC</span></div><div class="line">                <span class="keyword">return</span> interrupted;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;</div><div class="line">                parkAndCheckInterrupt())</div><div class="line">                interrupted = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (RuntimeException ex) &#123;</div><div class="line">        cancelAcquire(node);</div><div class="line">        <span class="keyword">throw</span> ex;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此时再做判断，由于线程2是双向队列的真正的第一个Node（前面还有一个h），所以第5行~第10行再次判断一下线程2能不能获取锁（可能这段时间内线程1已经执行完了把锁释放了，state从1变为了0），如果还是不行，先调用AQS的shouldParkAfterFailedAcquire(p, node)方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">shouldParkAfterFailedAcquire</span><span class="params">(Node pred, Node node)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> s = pred.waitStatus;</div><div class="line">    <span class="keyword">if</span> (s &lt; <span class="number">0</span>)</div><div class="line">        <span class="comment">/*</span></div><div class="line">         * This node has already set status asking a release</div><div class="line">         * to signal it, so it can safely park</div><div class="line">         */</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">if</span> (s &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Predecessor was cancelled. Skip over predecessors and</div><div class="line">         * indicate retry.</div><div class="line">         */</div><div class="line">    <span class="keyword">do</span> &#123;</div><div class="line">    node.prev = pred = pred.prev;</div><div class="line">    &#125; <span class="keyword">while</span> (pred.waitStatus &gt; <span class="number">0</span>);</div><div class="line">    pred.next = node;</div><div class="line">&#125;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * Indicate that we need a signal, but don't park yet. Caller</div><div class="line">         * will need to retry to make sure it cannot acquire before</div><div class="line">         * parking.</div><div class="line">         */</div><div class="line">         compareAndSetWaitStatus(pred, <span class="number">0</span>, Node.SIGNAL);</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>吐槽一下先，这段代码的代码格式真糟糕（看来JDK的开发大牛们也有写得不好的地方），这个waitStatus是h的waitStatus，很明显是0，所以此时把h的waitStatus设置为Noed.SIGNAL即-1并返回false。既然返回了false，上面的acquireQueued的11行if自然不成立，再走一次for循环，还是先尝试获取锁，不成功，继续走shouldParkAfterFailedAcquire，此时waitStatus为-1，小于0，走第三行的判断，返回true。然后走acquireQueued的11行if的第二个判断条件parkAndCheckInterrupt：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">parkAndCheckInterrupt</span><span class="params">()</span> </span>&#123;</div><div class="line">    LockSupport.park(<span class="keyword">this</span>);</div><div class="line">    <span class="keyword">return</span> Thread.interrupted();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">park</span><span class="params">(Object blocker)</span> </span>&#123;</div><div class="line">    Thread t = Thread.currentThread();</div><div class="line">    setBlocker(t, blocker);</div><div class="line">    unsafe.park(<span class="keyword">false</span>, <span class="number">0L</span>);</div><div class="line">    setBlocker(t, <span class="keyword">null</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>最后一步，调用LockSupport的park方法阻塞住了当前的线程。至此，使用ReentrantLock让线程1独占锁、线程2进入FIFO队列并阻塞的完整流程已经整理出来了。</p>
-<p>lock()的操作明了之后，就要探究一下unlock()的时候代码又做了什么了，接着看下一部分。</p>
-<h2 id="unlock-的时候做了什么"><a href="#unlock-的时候做了什么" class="headerlink" title="unlock()的时候做了什么"></a>unlock()的时候做了什么</h2><p>就不画流程图了，直接看一下代码流程，比较简单，调用ReentrantLock的unlock方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span> </span>&#123;</div><div class="line">    sync.release(<span class="number">1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>走AQS的release：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">release</span><span class="params">(<span class="keyword">int</span> arg)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (tryRelease(arg)) &#123;</div><div class="line">        Node h = head;</div><div class="line">        <span class="keyword">if</span> (h != <span class="keyword">null</span> &amp;&amp; h.waitStatus != <span class="number">0</span>)</div><div class="line">           unparkSuccessor(h);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>先调用Sync的tryRelease尝试释放锁：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">tryRelease</span><span class="params">(<span class="keyword">int</span> releases)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> c = getState() - releases;</div><div class="line">    <span class="keyword">if</span> (Thread.currentThread() != getExclusiveOwnerThread())</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalMonitorStateException();</div><div class="line">    <span class="keyword">boolean</span> free = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">if</span> (c == <span class="number">0</span>) &#123;</div><div class="line">        free = <span class="keyword">true</span>;</div><div class="line">        setExclusiveOwnerThread(<span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line">    setState(c);</div><div class="line">    <span class="keyword">return</span> free;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>首先，只有当c==0的时候才会让free=true，这和上面一个线程多次调用lock方法累加state是对应的，调用了多少次的lock()方法自然必须调用同样次数的unlock()方法才行，这样才把一个锁给全部解开。</p>
-<p>当一条线程对同一个ReentrantLock全部解锁之后，AQS的state自然就是0了，AbstractOwnableSynchronizer的exclusiveOwnerThread将被设置为null，这样就表示没有线程占有锁，方法返回true。代码继续往下走，上面的release方法的第四行，h不为null成立，h的waitStatus为-1，不等于0也成立，所以走第5行的unparkSuccessor方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">unparkSuccessor</span><span class="params">(Node node)</span> </span>&#123;</div><div class="line">    <span class="comment">/*</span></div><div class="line">     * Try to clear status in anticipation of signalling.  It is</div><div class="line">     * OK if this fails or if status is changed by waiting thread.</div><div class="line">     */</div><div class="line">    compareAndSetWaitStatus(node, Node.SIGNAL, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line">     * Thread to unpark is held in successor, which is normally</div><div class="line">     * just the next node.  But if cancelled or apparently null,</div><div class="line">     * traverse backwards from tail to find the actual</div><div class="line">     * non-cancelled successor.</div><div class="line">     */</div><div class="line">    Node s = node.next;</div><div class="line">    <span class="keyword">if</span> (s == <span class="keyword">null</span> || s.waitStatus &gt; <span class="number">0</span>) &#123;</div><div class="line">        s = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">for</span> (Node t = tail; t != <span class="keyword">null</span> &amp;&amp; t != node; t = t.prev)</div><div class="line">            <span class="keyword">if</span> (t.waitStatus &lt;= <span class="number">0</span>)</div><div class="line">                s = t;</div><div class="line">   &#125;</div><div class="line">    <span class="keyword">if</span> (s != <span class="keyword">null</span>)</div><div class="line">        LockSupport.unpark(s.thread);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>s即h的下一个Node，这个Node里面的线程就是线程2，由于这个Node不等于null，所以走21行，线程2被unPark了，得以运行。有一个很重要的问题是：锁被解了怎样保证整个FIFO队列减少一个Node呢？这是一个很巧妙的设计，又回到了AQS的acquireQueued方法了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">boolean</span> <span class="title">acquireQueued</span><span class="params">(<span class="keyword">final</span> Node node, <span class="keyword">int</span> arg)</span> </span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        <span class="keyword">boolean</span> interrupted = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">for</span> (;;) &#123;</div><div class="line">            <span class="keyword">final</span> Node p = node.predecessor();</div><div class="line">            <span class="keyword">if</span> (p == head &amp;&amp; tryAcquire(arg)) &#123;</div><div class="line">                setHead(node);</div><div class="line">                p.next = <span class="keyword">null</span>; <span class="comment">// help GC</span></div><div class="line">                <span class="keyword">return</span> interrupted;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (shouldParkAfterFailedAcquire(p, node) &amp;&amp;</div><div class="line">                parkAndCheckInterrupt())</div><div class="line">                interrupted = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">catch</span> (RuntimeException ex) &#123;</div><div class="line">        cancelAcquire(node);</div><div class="line">        <span class="keyword">throw</span> ex;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong><em>被阻塞的线程2是被阻塞在第12行，注意这里并没有return语句，也就是说，阻塞完成线程2依然会进行for循环。</em></strong> 然后，阻塞完成了，线程2所在的Node的前驱Node是p，线程2尝试tryAcquire，成功，然后线程2就成为了head节点了，把p的next设置为null，这样原头Node里面的所有对象都不指向任何块内存空间，h属于栈内存的内容，方法结束被自动回收，这样随着方法的调用完毕，原头Node也没有任何的引用指向它了，这样它就被GC自动回收了。此时，遇到一个return语句，acquireQueued方法结束，后面的Node也是一样的原理。</p>
-<p>这里有一个细节，看一下setHead方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setHead</span><span class="params">(Node node)</span> </span>&#123;</div><div class="line">    head = node;</div><div class="line">    node.thread = <span class="keyword">null</span>;</div><div class="line">    node.prev = <span class="keyword">null</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>setHead方法里面的前驱Node是Null，也没有线程，那么为什么不用一个在等待的线程作为Head Node呢？</p>
-<p>因为一个线程随时有可能因为中断而取消，而取消的话，Node自然就要被GC了，那GC前必然要把头Node的后继Node变为一个新的头而且要应对多种情况，这样就很麻烦。用一个没有thread的Node作为头，相当于起了一个引导作用，因为head没有线程，自然也不会被取消。</p>
-<p>再看一下上面unparkSuccessor的14行~20行，就是为了防止head的下一个node被取消的情况，这样，就从尾到头遍历，找出离head最近的一个node，对这个node进行unPark操作。</p>
-<h2 id="ReentrantLock其他方法的实现"><a href="#ReentrantLock其他方法的实现" class="headerlink" title="ReentrantLock其他方法的实现"></a>ReentrantLock其他方法的实现</h2><p>如果能理解ReentrantLock的实现方式，那么你会发现ReentrantLock中其余一些方法的实现还是很简单的，从JDK API关于ReentrantLock方法的介绍这部分，举几个例子：</p>
-<p>1、int getHoldCount()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getHoldCount</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> isHeldExclusively() ? getState() : <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>获取ReentrantLock的lock()方法被调用了几次，就是state的当前值</p>
-<p>2、Thread getOwner()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">final</span> Thread <span class="title">getOwner</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> getState() == <span class="number">0</span> ? <span class="keyword">null</span> : getExclusiveOwnerThread();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>获取当前占有锁的线程，就是AbstractOwnableSynchronizer中exclusiveOwnerThread的值</p>
-<p>3、Collection<thread> getQueuedThreads()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Collection&lt;Thread&gt; <span class="title">getQueuedThreads</span><span class="params">()</span> </span>&#123;</div><div class="line">    ArrayList&lt;Thread&gt; list = <span class="keyword">new</span> ArrayList&lt;Thread&gt;();</div><div class="line">    <span class="keyword">for</span> (Node p = tail; p != <span class="keyword">null</span>; p = p.prev) &#123;</div><div class="line">        Thread t = p.thread;</div><div class="line">        <span class="keyword">if</span> (t != <span class="keyword">null</span>)</div><div class="line">            list.add(t);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> list;</div><div class="line">&#125;</div></pre></td></tr></table></figure></thread></p>
-<p>从尾到头遍历一下，添加进ArrayList中</p>
-<p>4、int getQueuedLength()<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">getQueueLength</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (Node p = tail; p != <span class="keyword">null</span>; p = p.prev) &#123;</div><div class="line">        <span class="keyword">if</span> (p.thread != <span class="keyword">null</span>)</div><div class="line">            ++n;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>从尾到头遍历一下，累加n。当然这个方法和上面那个方法可能是不准确的，因为遍历的时候可能别的线程又往队列尾部添加了Node。</p>
-<p>其余方法也都差不多，可以自己去看一下。</p>
-<h2 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h2><p>ReentrantLock的流程基本已经理清楚了，现在还有一个遗留问题：<strong>我们知道ReentrantLock是可以指定公平锁或是非公平锁，那么到底是怎么样的代码差别导致公平锁和非公平锁的产生的呢？</strong></p>
-<p>说实话，这个问题，我自己到现在还没有完全想通。之后会持续跟进这个问题，一旦想明白了，会第一时间更新此文或者是新发一篇文章来专门讲述公平ReentrantLock和非公平ReentrantLock在代码上的差别。</p>
-<p>原文地址: <a href="http://www.importnew.com/22924.html" target="_blank" rel="external">http://www.importnew.com/22924.html</a><br><a href="http://www.cnblogs.com/xrq730/p/4979021.html" target="_blank" rel="external">http://www.cnblogs.com/xrq730/p/4979021.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ReentrantLock实现原理深入探究&quot;&gt;&lt;a href=&quot;#ReentrantLock实现原理深入探究&quot; class=&quot;headerlink&quot; title=&quot;ReentrantLock实现原理深入探究&quot;&gt;&lt;/a&gt;ReentrantLock实现原理深入探究&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;这篇文章被归到Java基础分类中，其实真的一点都不基础。网上写ReentrantLock的使用、ReentrantLock和synchronized的区别的文章很多，研究ReentrantLock并且能讲清楚ReentrantLock的原理的文章很少，本文就来研究一下ReentrantLock的实现原理。研究ReentrantLock的实现原理需要比较好的Java基础以及阅读代码的能力，有些朋友看不懂没关系，可以以后看，相信你一定会有所收获。&lt;/p&gt;
-&lt;p&gt;最后说一句，ReentrantLock是基于AQS实现的，这在下面会讲到，AQS的基础又是CAS，如果不是很熟悉CAS的朋友，可以看一下这篇文章&lt;a href=&quot;http://www.cnblogs.com/xrq730/p/4976007.html&quot;&gt;Unsafe与CAS&lt;/a&gt;。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="code" scheme="http://willxue.top/categories/code/"/>
-    
-    
-      <category term="多线程" scheme="http://willxue.top/tags/concurrent/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Troubleshooting Long GC Pauses</title>
-    <link href="http://willxue.top/2016/12/29/Troubleshooting-Long-GC-Pauses/"/>
-    <id>http://willxue.top/2016/12/29/Troubleshooting-Long-GC-Pauses/</id>
-    <published>2016-12-29T02:56:05.000Z</published>
-    <updated>2016-12-29T02:56:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿"><a href="#Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿" class="headerlink" title="Troubleshooting Long GC Pauses 垃圾收集器长时间停顿"></a>Troubleshooting Long GC Pauses 垃圾收集器长时间停顿</h1><p>By Poonam-Oracle on Jul 31, 2013</p>
-<p>Low pause times during the application run is the most important goal for many enterprise applications, especially for the transaction-based systems where long latencies can result in the transaction time-outs. For systems running on the Java Virtual Machines, garbage collections can sometimes be the cause of the long pauses.</p>
-<p>In this post I am going to describe different scenarios where we can encounter long GC pauses and how we can diagnose and troubleshoot these GC pauses.</p>
-<p>Causes</p>
-<p>Following are the different situations that can cause long GC pauses during the application run.</p>
-<a id="more"></a>
-<h2 id="1-Fragmentation-in-the-heap"><a href="#1-Fragmentation-in-the-heap" class="headerlink" title="1. Fragmentation in the heap"></a>1. Fragmentation in the heap</h2><p>Fragmentation in the Java Heap can cause GCs to occur more frequently and also sometimes causing long pauses in the GCs. This is more probable in the case of Concurrent Mark Sweep collector, also known as CMS, where the tenured generation space is not compacted with the concurrent collections.</p>
-<p>In case of the CMS, due to fragmentation in the tenured generation space, the young generation collections can face promotion failures and thus triggering ‘Concurrent Mode Failure’ collections that are stop-the-world Full GCs, and Full GCs take a long time to finish as compared to the concurrent collection pauses.</p>
-<p>Due to the fragmentation, the direct allocations in the tenured generation may fail even when there is lot of free space available and thus causing Full GCs. Fragmentation can also cause frequent allocation failures and thus triggering frequent Full GCs that increase the overall time the application is paused for.</p>
-<p>The following logs collected with the CMS collector show that the fragmentation in the CMS generation space is very high, that leads to the promotion failure during a young generation ParNew collection and then a ‘concurrent mode failure’. A Full GC is done in the event of ‘concurrent mode failure’ that takes a very long time, 17.1365396 seconds to finish.<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div></pre></td><td class="code"><pre><div class="line">&#123;Heap before GC invocations=7430 (full 24):</div><div class="line">par new generation total 134400K, used 121348K [0x53000000, 0x5c600000, 0x5c600000)</div><div class="line">eden space 115200K, 99% used [0x53000000, 0x5a07e738, 0x5a080000)</div><div class="line">from space 19200K, 32% used [0x5a080000, 0x5a682cc0, 0x5b340000)</div><div class="line">to space 19200K, 0% used [0x5b340000, 0x5b340000, 0x5c600000)</div><div class="line">concurrent mark-sweep generation total 2099200K, used 1694466K [0x5c600000, 0xdc800000, 0xdc800000)</div><div class="line">concurrent-mark-sweep perm gen total 409600K, used 186942K [0xdc800000, 0xf5800000, 0xfbc00000)</div><div class="line">10628.167: [GC Before GC:</div><div class="line"><span class="section">Statistics for BinaryTreeDictionary:</span></div><div class="line">------------------------------------</div><div class="line">Total Free Space: 103224160</div><div class="line">Max Chunk Size: 5486</div><div class="line">Number of Blocks: 57345</div><div class="line">Av. Block Size: 1800</div><div class="line">Tree Height: 36</div><div class="line"><span class="section">Statistics for IndexedFreeLists:</span></div><div class="line">--------------------------------</div><div class="line">Total Free Space: 371324</div><div class="line">Max Chunk Size: 254</div><div class="line">Number of Blocks: 8591 &lt;---- High fragmentation</div><div class="line">Av. Block Size: 43</div><div class="line">free=103595484 frag=1.0000 &lt;---- High fragmentation</div><div class="line">Before GC:</div><div class="line"><span class="section">Statistics for BinaryTreeDictionary:</span></div><div class="line">------------------------------------</div><div class="line">Total Free Space: 0</div><div class="line">Max Chunk Size: 0</div><div class="line">Number of Blocks: 0</div><div class="line">Tree Height: 0</div><div class="line"><span class="section">Statistics for IndexedFreeLists:</span></div><div class="line">--------------------------------</div><div class="line">Total Free Space: 0</div><div class="line">Max Chunk Size: 0</div><div class="line">Number of Blocks: 0</div><div class="line">free=0 frag=0.0000</div><div class="line">10628.168: [ParNew (promotion failed)</div><div class="line">Desired survivor size 9830400 bytes, new threshold 1 (max 1)</div><div class="line"><span class="bullet">- </span>age 1: 4770440 bytes, 4770440 total</div><div class="line"><span class="meta">: 121348K-&gt;122157K(134400K), 0.4263254 secs]10628,594:</span> [CMS10630.887: [CMS-concurrent-mark: 7.286/8.682 secs] [Times: user=14.81 sys=0.34, real=8.68 secs] (concurrent mode failure): 1698044K-&gt;625427K(2099200K), 17.1365396 secs] 1815815K-&gt;625427K(2233600K), [CMS Perm : 186942K-&gt;180711K(409600K)]After GC:</div><div class="line"><span class="section">Statistics for BinaryTreeDictionary:</span></div><div class="line">------------------------------------</div><div class="line">Total Free Space: 377269492</div><div class="line">Max Chunk Size: 377269492</div><div class="line">Number of Blocks: 1</div><div class="line">Av. Block Size: 377269492</div><div class="line">Tree Height: 1</div><div class="line"><span class="section">Statistics for IndexedFreeLists:</span></div><div class="line">--------------------------------</div><div class="line">Total Free Space: 0</div><div class="line">Max Chunk Size: 0</div><div class="line">Number of Blocks: 0</div><div class="line">free=377269492 frag=0.0000</div><div class="line">After GC:</div><div class="line"><span class="section">Statistics for BinaryTreeDictionary:</span></div><div class="line">------------------------------------</div><div class="line">Total Free Space: 0</div><div class="line">Max Chunk Size: 0</div><div class="line">Number of Blocks: 0</div><div class="line">Tree Height: 0</div><div class="line"><span class="section">Statistics for IndexedFreeLists:</span></div><div class="line">--------------------------------</div><div class="line">Total Free Space: 0</div><div class="line">Max Chunk Size: 0</div><div class="line">Number of Blocks: 0</div><div class="line">free=0 frag=0.0000</div><div class="line">, 17.5645589 secs] [Times: user=17.82 sys=0.06, real=17.57 secs]</div><div class="line">Heap after GC invocations=7431 (full 25):</div><div class="line">par new generation total 134400K, used 0K [0x53000000, 0x5c600000, 0x5c600000)</div><div class="line">eden space 115200K, 0% used [0x53000000, 0x53000000, 0x5a080000)</div><div class="line">from space 19200K, 0% used [0x5b340000, 0x5b340000, 0x5c600000)</div><div class="line">to space 19200K, 0% used [0x5a080000, 0x5a080000, 0x5b340000)</div><div class="line">concurrent mark-sweep generation total 2099200K, used 625427K [0x5c600000, 0xdc800000, 0xdc800000)</div><div class="line">concurrent-mark-sweep perm gen total 409600K, used 180711K [0xdc800000, 0xf5800000, 0xfbc00000)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Total time for which application threads were stopped: 17.5730653 seconds</p>
-<h2 id="2-Other-OS-activities-happening-at-the-time-of-GC"><a href="#2-Other-OS-activities-happening-at-the-time-of-GC" class="headerlink" title="2. Other OS activities happening at the time of GC"></a>2. Other OS activities happening at the time of GC</h2><p>Sometimes the OS activities such as the swap space or networking activity happening at the time when GC is taking place can make the GC pauses last much longer. These pauses can be of the order of few seconds to some minutes.</p>
-<p>If your system is configured to use swap space, Operating System may move inactive pages of memory of the JVM process to the swap space, to free up memory for the currently active process which may be the same process or a different process on the system. Swapping is very expensive as it requires disk accesses which are much slower as compared to the physical memory access. So, if during a garbage collection the system needs to perform swapping, the GC would seem to run for a very long time.</p>
-<p>Following is the log of a young generation collection that lasts for 29.47 seconds.<br><figure class="highlight dns"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;Heap before GC invocations=<span class="number">132</span> (full <span class="number">0</span>):</div><div class="line">par new generation total <span class="number">2696384</span>K, used <span class="number">2696384</span>K [<span class="number">0</span>xfffffffc<span class="number">20010000</span>, <span class="number">0</span>xfffffffce<span class="number">0010000</span>, <span class="number">0</span>xfffffffce<span class="number">0010000</span>)</div><div class="line">eden space <span class="number">2247040</span>K, <span class="number">100</span>% used [<span class="number">0</span>xfffffffc<span class="number">20010000</span>, <span class="number">0</span>xfffffffca<span class="number">9270000</span>, <span class="number">0</span>xfffffffca<span class="number">9270000</span>)</div><div class="line">from space <span class="number">449344</span>K, <span class="number">100</span>% used [<span class="number">0</span>xfffffffca<span class="number">9270000</span>, <span class="number">0</span>xfffffffcc<span class="number">4940000</span>, <span class="number">0</span>xfffffffcc<span class="number">4940000</span>)</div><div class="line">to space <span class="number">449344</span>K, <span class="number">0</span>% used [<span class="number">0</span>xfffffffcc<span class="number">4940000</span>, <span class="number">0</span>xfffffffcc<span class="number">4940000</span>, <span class="number">0</span>xfffffffce<span class="number">0010000</span>)</div><div class="line">concurrent mark-sweep generation total <span class="number">9437184</span>K, used <span class="number">1860619</span>K [<span class="number">0</span>xfffffffce<span class="number">0010000</span>, <span class="number">0</span>xffffffff<span class="number">20010000</span>, <span class="number">0</span>xffffffff<span class="number">20010000</span>)</div><div class="line">concurrent-mark-sweep perm gen total <span class="number">1310720</span>K, used <span class="number">511451</span>K [<span class="number">0</span>xffffffff<span class="number">20010000</span>, <span class="number">0</span>xffffffff<span class="number">70010000</span>, <span class="number">0</span>xffffffff<span class="number">70010000</span>)</div><div class="line"><span class="number">2013</span>-<span class="number">07-17T03:58</span>:<span class="number">06</span>.<span class="number">601-0700</span>: <span class="number">51522.120</span>: [GC Before GC: : <span class="number">2696384</span>K-&gt;<span class="number">449344</span>K(<span class="number">2696384</span>K), <span class="number">29.4779282</span> secs] <span class="number">4557003</span>K-&gt;<span class="number">2326821</span>K(<span class="number">12133568</span>K) ,<span class="number">29.4795222</span> secs] [Times: user=<span class="number">915</span>.<span class="number">56</span> sys=<span class="number">6</span>.<span class="number">35</span>, real=<span class="number">29</span>.<span class="number">48</span> secs]</div></pre></td></tr></table></figure></p>
-<p>Corresponding ‘vmstat’ output at 03:58:<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">kthr memory page disk faults cpu</div><div class="line">r b w swap free re mf pi po fr de sr s0 s1 s2 s3 in sy cs us sy id</div><div class="line"><span class="number">20130717</span>_035806 <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">77611960</span> <span class="number">94847600</span> <span class="number">55</span> <span class="number">266</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">3041</span> <span class="number">2644</span> <span class="number">2431</span> <span class="number">44</span> <span class="number">8</span> <span class="number">48</span></div><div class="line"><span class="number">20130717</span>_035815 <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">76968296</span> <span class="number">94828816</span> <span class="number">79</span> <span class="number">324</span> <span class="number">0</span> <span class="number">18</span> <span class="number">18</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1</span> <span class="number">0</span> <span class="number">3009</span> <span class="number">3642</span> <span class="number">2519</span> <span class="number">59</span> <span class="number">13</span> <span class="number">28</span></div><div class="line"><span class="number">20130717</span>_035831 <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">77316456</span> <span class="number">94816000</span> <span class="number">389</span> <span class="number">2848</span> <span class="number">0</span> <span class="number">7</span> <span class="number">7</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">0</span> <span class="number">40062</span> <span class="number">78231</span> <span class="number">61451</span> <span class="number">42</span> <span class="number">6</span> <span class="number">53</span></div><div class="line"><span class="number">20130717</span>_035841 <span class="number">2</span> <span class="number">0</span> <span class="number">0</span> <span class="number">77577552</span> <span class="number">94798520</span> <span class="number">115</span> <span class="number">591</span> <span class="number">0</span> <span class="number">13</span> <span class="number">13</span> <span class="number">0</span> <span class="number">0</span> <span class="number">13</span> <span class="number">12</span> <span class="number">1</span> <span class="number">0</span> <span class="number">4991</span> <span class="number">8104</span> <span class="number">5413</span> <span class="number">2</span> <span class="number">0</span> <span class="number">98</span></div></pre></td></tr></table></figure></p>
-<p>This minor GC takes around 29 secs to complete. The corresponding vmstat output shows that the available swap space drops down by ~600mb during this period. That means during this garbage collection some pages from the RAM were moved out to the swap space, not necessarily by the same process running on the system.</p>
-<p>From the above, it is clear that the physical memory available on the system is not enough for all the processes running on the system. The way to resolve this is to run fewer processes or if possible, add more RAM to increase the physical memory of the system. In the case above, the specified maximum tenured generation size is set as 9G and out of that only 1.8G is occupied. So it makes sense to reduce the heap size to lower the memory pressure on the physical memory so as to avoid or minimize the swapping activity.</p>
-<p>Apart from swapping, we should monitor if there is any i/o or network activity happening during the long GC pauses. These can be monitored using iostat and netstat tools. It is also helpful to see the CPU statistics with the mpstat tool to figure out if enough CPU resources were available during the GC pauses.</p>
-<h2 id="3-Insufficient-heap-size"><a href="#3-Insufficient-heap-size" class="headerlink" title="3. Insufficient heap size"></a>3. Insufficient heap size</h2><p>If the application footprint is larger than the maximum heap space that we have specified for the JVM, it results in frequent collections. Due to the insufficient heap space, the allocation requests fail and the JVM needs to invoke garbage collections in an attempt to reclaim space for the allocations. But since it cannot claim much space with each collection, subsequent allocation failures result in more GC invocations.</p>
-<p>These frequent Full GCs cause long pauses in the application run. For example, in the following case, the permanent generation is almost full and the allocation attempts into the permanent generation are failing, triggering the Full GCs.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">166687.013</span>: [Full GC [PSYoungGen: <span class="number">126501</span>K-&gt;<span class="number">0</span>K(<span class="number">922048</span>K)] [PSOldGen: <span class="number">2063794</span>K-&gt;<span class="number">1598637</span>K(<span class="number">2097152</span>K)] <span class="number">2190295</span>K-&gt;<span class="number">1598637</span>K(<span class="number">3019200</span>K) [PSPermGen: <span class="number">165840</span>K-&gt;<span class="number">164249</span>K(<span class="number">166016</span>K)], <span class="number">6.8204928</span> secs] [Times: user=<span class="number">6.80</span> sys=<span class="number">0.02</span>, real=<span class="number">6.81</span> secs]</div><div class="line"><span class="number">166699.015</span>: [Full GC [PSYoungGen: <span class="number">125518</span>K-&gt;<span class="number">0</span>K(<span class="number">922048</span>K)] [PSOldGen: <span class="number">1763798</span>K-&gt;<span class="number">1583621</span>K(<span class="number">2097152</span>K)] <span class="number">1889316</span>K-&gt;<span class="number">1583621</span>K(<span class="number">3019200</span>K) [PSPermGen: <span class="number">165868</span>K-&gt;<span class="number">164849</span>K(<span class="number">166016</span>K)], <span class="number">4.8204928</span> secs] [Times: user=<span class="number">4.80</span> sys=<span class="number">0.02</span>, real=<span class="number">4.81</span> secs]</div></pre></td></tr></table></figure></p>
-<p>Similarly, the frequent Full GCs can occur if there is insufficient space in the tenured generation for the allocations or promotions.</p>
-<p>The solution for these long pauses is to identify the average footprint of the application and then specify the heap size accordingly.</p>
-<h2 id="4-Bug-in-the-JVM"><a href="#4-Bug-in-the-JVM" class="headerlink" title="4. Bug in the JVM"></a>4. Bug in the JVM</h2><p>Sometimes these long pauses could be due to a bug in the JVM. For example, due to the following bugs in the JVM, Java applications may face long GC pauses.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="number">6459113</span>: CMS+ParNew: wildly different ParNew pause times depending on heap shape caused by allocation spread</div><div class="line">    fixed in JDK <span class="number">6</span>u1 and <span class="number">7</span></div><div class="line"><span class="number">6572569</span>: CMS: <span class="function">consistently skewed work distribution indicated <span class="title">in</span> <span class="params">(<span class="keyword">long</span>)</span> re-mark pauses</span></div><div class="line">    fixed in JDK 6u4 and 7</div><div class="line">6631166: CMS: better heuristics when combatting fragmentation</div><div class="line">    fixed in JDK 6u21 and 7</div><div class="line">6999988: CMS: Increased fragmentation leading to promotion failure after CR#6631166 got implemented</div><div class="line">    fixed in JDK 6u25 and 7</div><div class="line">6683623: G1: use logarithmic BOT code such as used by other collectors</div><div class="line">    fixed in JDK 6u14 and 7</div><div class="line">6976350: G1: deal with fragmentation <span class="keyword">while</span> copying objects during GC</div><div class="line">    fixed in JDK 8</div></pre></td></tr></table></figure></p>
-<p>If you are running with a JVM version affected with these bugs, please upgrade to the version where these bugs are fixed.</p>
-<h2 id="5-Explicit-System-GCs"><a href="#5-Explicit-System-GCs" class="headerlink" title="5. Explicit System GCs"></a>5. Explicit System GCs</h2><p>Check if there are any explicit System GCs happening. Requests to invoke these System GCs which are stop-the-world Full GCs could be coming from the System.gc() calls from some class in the application or from a some third party module. These explicit System GCs too can cause very long pauses.</p>
-<p>164638.058: [Full GC (System) [PSYoungGen: 22789K-&gt;0K(992448K)] [PSOldGen: 1645508K-&gt;1666990K(2097152K)] 1668298K-&gt;1666990K(3089600K) [PSPermGen: 164914K-&gt;164914K(166720K)], 5.7499132 secs] [Times: user=5.69 sys=0.06, real=5.75 secs]</p>
-<p>If you are using RMI and are observing explicit Full GCs on a regular interval, then these are coming from the RMI implementation that triggers System.gc() on a regular interval. This interval can be configured using the following system properties:</p>
-<p>-Dsun.rmi.dgc.server.gcInterval=n<br>-Dsun.rmi.dgc.client.gcInterval=n</p>
-<p>The default value for these properties in JDK 1.4.2 and 5.0 is 60000 milliseconds, and 3600000 milliseconds in JDK 6 and later releases.</p>
-<p>If you want to disable the explicit Full GCs invoked using System.gc(), run the application with -XX:+DisableExplicitGC JVM option.</p>
-<h1 id="How-to-approach-the-problem"><a href="#How-to-approach-the-problem" class="headerlink" title="How to approach the problem"></a>How to approach the problem</h1><ol>
-<li>Collect GC logs with -XX:+PrintGCDetails -XX:+PrintHeapAtGC -XX:+PrintGCTimeStamps -XX:+PrintGCDateStamps and -XX:+PrintGCApplicationStoppedTime. In case of the CMS collector, add option -XX:PrintFLSStatistics=2 as well.</li>
-</ol>
-<p>The GC logs can give us details on the nature and the frequency of the GC pauses i.e. they can provide answers to the questions like - are the long GC pauses occurring during young collections or old collections, and how frequently those collections are encountering long pauses.</p>
-<ol>
-<li><p>Monitor the overall health of the system using OS tools like vmstat, iostat, netstat and mpstat etc. on Solaris and Linux platforms, and tools like <a href="technet.microsoft.com/en-us/sysinternals/bb896645.aspx">Process Monitor</a> and Task Manager on the Windows operating system.</p>
-</li>
-<li><p>Use <a href="https://java.net/projects/gchisto" target="_blank" rel="external">GCHisto</a> tool to visually analyze the GC Logs and figure out which GCs are taking long time and if there is a pattern in the occurrence of these collections.</p>
-</li>
-<li><p>Try to see from the GC logs if there are any signs of fragmentation in the Java Heap space.</p>
-</li>
-<li><p>Monitor if the specified Heap size is enough to contain the footprint of the application.</p>
-</li>
-<li><p>Check if you are running with a JVM that has a known bug related to the long GC pauses and then upgrade if that bug is fixed in a later version.</p>
-</li>
-</ol>
-<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>长时间停顿问题的排查及解决首先需要一定的信息和方法论：</p>
-<p>详细的 GC 日志<br>借助 Linux 平台下的 iostat、vmstat、netstat、mpstat 等命令监控系统情况<br>使用 GCHisto 这个 GC 图形用户界面工具，可以统计出 Minor GC 及 Full GC 频率及时长分布，可参考:<a href="http://blog.csdn.net/wenniuwuren/article/details/50760259" target="_blank" rel="external">http://blog.csdn.net/wenniuwuren/article/details/50760259</a><br>查看 GC 日志中是否出现了上述的典型内存异常问题（promotion failed, concurrent mode failure），整体来说把上述两个典型内存异常情况控制在可接受的发生频率即可，对 CMS 碎片问题来说杜绝以上问题似乎不太可能，只能靠 G1 来解决了<br>是不是 JVM 本身的 bug 导致的<br>如果程序没问题，参数调了几次还是不能解决，可能说明流量太大，需要加机器把压力分散到更多 JVM 上</p>
-<p>原谅地址：<a href="https://blogs.oracle.com/poonam/entry/troubleshooting_long_gc_pauses" target="_blank" rel="external">https://blogs.oracle.com/poonam/entry/troubleshooting_long_gc_pauses</a><br><a href="http://www.importnew.com/22886.html" target="_blank" rel="external">http://www.importnew.com/22886.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿&quot;&gt;&lt;a href=&quot;#Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿&quot; class=&quot;headerlink&quot; title=&quot;Troubleshooting Long GC Pauses 垃圾收集器长时间停顿&quot;&gt;&lt;/a&gt;Troubleshooting Long GC Pauses 垃圾收集器长时间停顿&lt;/h1&gt;&lt;p&gt;By Poonam-Oracle on Jul 31, 2013&lt;/p&gt;
-&lt;p&gt;Low pause times during the application run is the most important goal for many enterprise applications, especially for the transaction-based systems where long latencies can result in the transaction time-outs. For systems running on the Java Virtual Machines, garbage collections can sometimes be the cause of the long pauses.&lt;/p&gt;
-&lt;p&gt;In this post I am going to describe different scenarios where we can encounter long GC pauses and how we can diagnose and troubleshoot these GC pauses.&lt;/p&gt;
-&lt;p&gt;Causes&lt;/p&gt;
-&lt;p&gt;Following are the different situations that can cause long GC pauses during the application run.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="code" scheme="http://willxue.top/categories/code/"/>
-    
-    
-      <category term="jvm" scheme="http://willxue.top/tags/jvm/"/>
-    
-      <category term="调优" scheme="http://willxue.top/tags/%E8%B0%83%E4%BC%98/"/>
     
   </entry>
   

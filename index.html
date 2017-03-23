@@ -428,6 +428,157 @@
 
 
   
+    <article id="post-MyBatis排序时使用order-by-动态参数时需要注意，用-而不是" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/23/MyBatis排序时使用order-by-动态参数时需要注意，用-而不是/">MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</a>
+    </h1>
+  
+
+        <a href="/2017/03/23/MyBatis排序时使用order-by-动态参数时需要注意，用-而不是/" class="archive-article-date">
+  	<time datetime="2017-03-23T13:13:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-23</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>#MyBatis排序时使用order by 动态参数时需要注意，用$而不是#</p>
+<p>字符串替换默认情况下，使用#{}格式的语法会导致MyBatis创建预处理语句属性并以它为背景设置安全的值（比如?）。<br>这样做很安全，很迅速也是首选做法，有时你只是想直接在SQL语句中插入一个不改变的字符串。比如，像ORDER BY，你可以这样来使用：<br>ORDER BY ${columnName}这里MyBatis不会修改或转义字符串。</p>
+<h2 id="重要："><a href="#重要：" class="headerlink" title="重要："></a>重要：</h2><p>接受从用户输出的内容并提供给语句中不变的字符串，这样做是不安全的。<br>这会导致潜在的SQL注入攻击，因此你不应该允许用户输入这些字段，或者通常自行转义并检查。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color3">MyBatis</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/code/">code</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/23/MyBatis排序时使用order-by-动态参数时需要注意，用-而不是/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-Druid简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/18/Druid简介/">Druid简介</a>
+    </h1>
+  
+
+        <a href="/2017/03/18/Druid简介/" class="archive-article-date">
+  	<time datetime="2017-03-18T12:36:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-18</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Druid-简介"><a href="#Druid-简介" class="headerlink" title="Druid 简介"></a>Druid 简介</h1><h2 id="【软件简介】"><a href="#【软件简介】" class="headerlink" title="【软件简介】"></a>【软件简介】</h2><p><strong> Druid 是一个JDBC组件，它包括三部分： </strong></p>
+<ul>
+<li>1、DruidDriver 代理Driver，能够提供基于Filter－Chain模式的插件体系。</li>
+<li>2、DruidDataSource 高效可管理的数据库连接池。</li>
+<li>3、SQLParser</li>
+</ul>
+<h2 id="【访谈实录】"><a href="#【访谈实录】" class="headerlink" title="【访谈实录】"></a>【访谈实录】</h2><h3 id="1-能否先介绍一下你自己（技术背景、工作经历、学习经历）"><a href="#1-能否先介绍一下你自己（技术背景、工作经历、学习经历）" class="headerlink" title="1.    能否先介绍一下你自己（技术背景、工作经历、学习经历）"></a>1.    能否先介绍一下你自己（技术背景、工作经历、学习经历）</h3><p>我，温绍锦，新浪微博账号是温高铁（<a href="http://weibo.com/wengaotie），2001年深圳大学毕业后到金蝶软件工作，到2010年3月，在此期间，主要的工作成果包括工作流引擎、多数据支持、短信网关、SAAS多租户技术架构等。2010年3月加入阿里巴巴至今，主要负责设计阿里巴巴的监控系统Dragoon，监控应用和操作系统以及网络设备。Druid和Fastjson都是监控系统的伴生项目。" target="_blank" rel="external">http://weibo.com/wengaotie），2001年深圳大学毕业后到金蝶软件工作，到2010年3月，在此期间，主要的工作成果包括工作流引擎、多数据支持、短信网关、SAAS多租户技术架构等。2010年3月加入阿里巴巴至今，主要负责设计阿里巴巴的监控系统Dragoon，监控应用和操作系统以及网络设备。Druid和Fastjson都是监控系统的伴生项目。</a></p>
+<h3 id="2-是什么促使你（团队）开发-Druid-？为什么取这个名字？"><a href="#2-是什么促使你（团队）开发-Druid-？为什么取这个名字？" class="headerlink" title="2.    是什么促使你（团队）开发 Druid ？为什么取这个名字？"></a>2.    是什么促使你（团队）开发 Druid ？为什么取这个名字？</h3><p>在应用监控中，JDBC层间的监控十分重要，Druid就是为监控而生的。老板喜欢的一个游戏职业是Druid，于是项目的名称就是Druid。</p>
+<h3 id="3-相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？"><a href="#3-相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？" class="headerlink" title="3.   相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？"></a>3.   相对别的JDBC组件，Druid有什么优势和特点？有没有一些特殊或者创新的技术运用？</h3><p>Druid最重要的优势，就是监控和扩展。在实际测试中，DruidDataSource的性能要比C3P0/DBCP/Jboss DataSource/Proxool/BoneCP都要好，但性能不是Druid的最重要优势。<br>Druid最初是为监控而生的JDBC组件，阿里巴巴的应用监控系统的JDBC相关监控数据都来自Druid。Druid能够监控执行时间、事务时间、返回行数、更新行数、最大并发、耗时区间分布等，共一百多个监控指标。Druid的监控非常出色，在业界中，没有任何JDBC组件在监控方面能和Druid相比。<br>Druid提供了基于Filter-Chain模式的扩展，使得在JDBC层做扩展非常容易。Druid内置提供了一些常用的Filter，StatFilter用于提供监控数据，Log系列Filter用于提供输出Connection、Statement、ResultSet相关的日志，WallFilter用于防御SQL注入攻击。在阿里巴巴，业务系统自行开发各种功能的Filter，比如：数据库密码加密的CirceFilter、数据库修改操作变更日志记录的TracerFilter、用于关联监控统计的DragoonFilter、用于错误编码转换的EncodingConvertFilter等等。<br>Druid还提供了一个功能完毕的SQL Parser，支持Oracle、MySQL、Postgresql、SQL Server等主流数据库的SQL。</p>
+<h3 id="4-Druid-目前怎么推广，在实际产品中的应用情况如何？"><a href="#4-Druid-目前怎么推广，在实际产品中的应用情况如何？" class="headerlink" title="4.    Druid 目前怎么推广，在实际产品中的应用情况如何？"></a>4.    Druid 目前怎么推广，在实际产品中的应用情况如何？</h3><p>Druid已经在阿里巴巴的B2B中全面使用，大约有600多个应用，最大的应用一个集群60多个Instance，总共数千个Instance。Druid在淘宝、支付宝刚开始使用。随着监控系统Dragoon在整个阿里集团推广，Druid将会在整个阿里集团部署。<br>Druid在阿里巴巴外部也有很多用户，经常收到反馈，但没有详细的统计数据。</p>
+<h3 id="5-阿里以外的项目比较少采用-Druid-是否因为它比较适合大型系统？因为-Druid-强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？"><a href="#5-阿里以外的项目比较少采用-Druid-是否因为它比较适合大型系统？因为-Druid-强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？" class="headerlink" title="5.    阿里以外的项目比较少采用 Druid 是否因为它比较适合大型系统？因为 Druid 强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？"></a>5.    阿里以外的项目比较少采用 Druid 是否因为它比较适合大型系统？因为 Druid 强大的监控功能，一般小型系统都不需要。我估计易用性和文档是大部分项目选用连接池的首要指标。不知道你是否认同我的观点？</h3><p>不是的，阿里巴巴600多个应用中，大中小各种类型的应用都有。稳定来自于透明，Druid的监控功能使得数据库访问层完全透明可监控。据我收到的反馈来看，阿里巴巴之外，至少有50个以上的项目采用了Druid。最近主动部署内置监控页面的，很多都是小应用，只有一台服务器的小应用。Druid的应用还没有DBCP、C3P0广，主要是它对外推广的时间还不够长，今年（2012年）下半年开始，才开始对外推广。</p>
+<h3 id="6-目前参与开发-维护-Druid-的人员有哪些？是否都是全职做-Druid-的开发？"><a href="#6-目前参与开发-维护-Druid-的人员有哪些？是否都是全职做-Druid-的开发？" class="headerlink" title="6.    目前参与开发/维护 Druid 的人员有哪些？是否都是全职做 Druid 的开发？"></a>6.    目前参与开发/维护 Druid 的人员有哪些？是否都是全职做 Druid 的开发？</h3><p>目前主要的开发人员有：刘加伟（项目发起人/阿里集团）、温绍锦（我/阿里集团）、王瑾华（axmanwang/阿里集团）、张永为（sandzhang/阿里巴巴）、修斯研（xiusiyan/支付宝）、齐占明（ZhangmingQi/中企永联）、周科荣（zhouhaibin/新浪彩票）、septer。<br>只有温绍锦（我）和王瑾华曾是公司工作安排相关，其他的都是业余参与。<br>在2011初，公司配备了专职的连接池测试人员：王克举、陈龙（实习生），2011年下半年连接池稳定之后就没有专职的测试了。</p>
+<h3 id="7-Druid-将来的发展方向？"><a href="#7-Druid-将来的发展方向？" class="headerlink" title="7.    Druid 将来的发展方向？"></a>7.    Druid 将来的发展方向？</h3><p>成为国内使用最广泛的Java数据库连接池。着重社区建设，增加非阿里系开发人员的比重。</p>
+<h3 id="8-能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？"><a href="#8-能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？" class="headerlink" title="8.    能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？"></a>8.    能否谈一下你对开源的理解，以及对国内开源技术和产品的看法？</h3><p>参与开源是个人爱好，是对技术的追求。开源的项目，一定要是精品，要有突出的优势，把乱七八糟的产品开源了，没有意义。做开源产品，必须强调运营，和社区互动，尽量让社区更多参与其中。</p>
+<p>###9.    淘宝内部对于 Druid 这样的开源项目是如何管理和规划的？<br>这个项目发源于阿里巴巴B2B，目前归属于阿里集团，不是淘宝。项目首先是服务于公司的业务，阿里巴巴开源平台是做精品策略，开源必须要是好产品。公司支持和鼓励开源，但开源部分的工作和绩效无关。Druid的发展过程中，公司配备专职的测试，在测试环境和生产环境进行测试，实施阶段有专职人员负责实施，各个部门有相应的实施负责人。Druid快速发展成熟，很重要的原因是公司提供了大力支持。</p>
+<h3 id="10-你有什么建议给程序员初学者吗？"><a href="#10-你有什么建议给程序员初学者吗？" class="headerlink" title="10.   你有什么建议给程序员初学者吗？"></a>10.   你有什么建议给程序员初学者吗？</h3><p>如果项目中有用到数据库连接池，一定要选择Druid。多阅读JDK基础类库的源码，多阅读JSR（<a href="http://jcp.org）。" target="_blank" rel="external">http://jcp.org）。</a></p>
+<h3 id="11-能否给开源中国提一些意见和建议？"><a href="#11-能否给开源中国提一些意见和建议？" class="headerlink" title="11.    能否给开源中国提一些意见和建议？"></a>11.    能否给开源中国提一些意见和建议？</h3><p>建议OSChina把原来使用的数据库连接池更换为Druid。</p>
+<h3 id="12、开源地址"><a href="#12、开源地址" class="headerlink" title="12、开源地址"></a>12、开源地址</h3><p>API<br><a href="http://tool.oschina.net/apidocs/apidoc?api=druid0.26" target="_blank" rel="external">http://tool.oschina.net/apidocs/apidoc?api=druid0.26</a></p>
+<p>OSChina<br><a href="https://git.oschina.net/wenshao/druid" target="_blank" rel="external">https://git.oschina.net/wenshao/druid</a></p>
+<p>github(信息比oschina全一些)<br><a href="https://github.com/druid-io" target="_blank" rel="external">https://github.com/druid-io</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list">
+			 
+        <li class="article-tag-list-item">
+        	<a href="javascript:void(0)" class="article-tag-list-link color1">Druid</a>
+        </li>
+      
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/code/">code</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/18/Druid简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-2017年书单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -447,8 +598,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>2017年大爷的书单</p>
-<p>1、《大话Java性能优化》 –2017.02.11<br>2、《摆渡人》 –2017.03.01</p>
-<p>2017年娘子的书单</p>
+<p>1、《解忧杂货店》  – 春节期间<br>2、《大话Java性能优化》 –2017.02.11<br>3、《摆渡人》 –2017.03.01</p>
+<p>2017年娘子的书单<br>1、《解忧杂货店》<br>2、《摆渡人》</p>
 
       
 
@@ -1300,149 +1451,6 @@
 
 
   
-    <article id="post-ReentrantLock实现原理深入探究" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/29/ReentrantLock实现原理深入探究/">ReentrantLock实现原理深入探究</a>
-    </h1>
-  
-
-        <a href="/2016/12/29/ReentrantLock实现原理深入探究/" class="archive-article-date">
-  	<time datetime="2016-12-29T13:51:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ReentrantLock实现原理深入探究"><a href="#ReentrantLock实现原理深入探究" class="headerlink" title="ReentrantLock实现原理深入探究"></a>ReentrantLock实现原理深入探究</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章被归到Java基础分类中，其实真的一点都不基础。网上写ReentrantLock的使用、ReentrantLock和synchronized的区别的文章很多，研究ReentrantLock并且能讲清楚ReentrantLock的原理的文章很少，本文就来研究一下ReentrantLock的实现原理。研究ReentrantLock的实现原理需要比较好的Java基础以及阅读代码的能力，有些朋友看不懂没关系，可以以后看，相信你一定会有所收获。</p>
-<p>最后说一句，ReentrantLock是基于AQS实现的，这在下面会讲到，AQS的基础又是CAS，如果不是很熟悉CAS的朋友，可以看一下这篇文章<a href="http://www.cnblogs.com/xrq730/p/4976007.html">Unsafe与CAS</a>。</p>
-        
-          <a class="article-more-a" href="/2016/12/29/ReentrantLock实现原理深入探究/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color4">多线程</a>
-        </li>
-      
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<a class="article-category-link" href="/categories/code/">code</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/29/ReentrantLock实现原理深入探究/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Troubleshooting-Long-GC-Pauses" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/">Troubleshooting Long GC Pauses</a>
-    </h1>
-  
-
-        <a href="/2016/12/29/Troubleshooting-Long-GC-Pauses/" class="archive-article-date">
-  	<time datetime="2016-12-29T02:56:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-29</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿"><a href="#Troubleshooting-Long-GC-Pauses-垃圾收集器长时间停顿" class="headerlink" title="Troubleshooting Long GC Pauses 垃圾收集器长时间停顿"></a>Troubleshooting Long GC Pauses 垃圾收集器长时间停顿</h1><p>By Poonam-Oracle on Jul 31, 2013</p>
-<p>Low pause times during the application run is the most important goal for many enterprise applications, especially for the transaction-based systems where long latencies can result in the transaction time-outs. For systems running on the Java Virtual Machines, garbage collections can sometimes be the cause of the long pauses.</p>
-<p>In this post I am going to describe different scenarios where we can encounter long GC pauses and how we can diagnose and troubleshoot these GC pauses.</p>
-<p>Causes</p>
-<p>Following are the different situations that can cause long GC pauses during the application run.</p>
-        
-          <a class="article-more-a" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list">
-			 
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color4">jvm</a>
-        </li>
-       
-        <li class="article-tag-list-item">
-        	<a href="javascript:void(0)" class="article-tag-list-link color3">调优</a>
-        </li>
-      
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<a class="article-category-link" href="/categories/code/">code</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/29/Troubleshooting-Long-GC-Pauses/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1559,7 +1567,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color1">Druid</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">MyBatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color2">java优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1591,15 +1615,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color2">java优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color3">日志</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color3">缓存</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1611,15 +1627,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="color3">缓存</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color5">高并发，日期格式化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="color1">哈佛幸福果</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="color4">多线程</a>
               </li>
             
             <div class="clearfix"></div>
